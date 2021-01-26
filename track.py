@@ -183,7 +183,7 @@ if __name__ == '__main__':
     parser.add_argument('--save-images', action='store_true', help='save tracking results (image)')
     parser.add_argument('--save-videos', action='store_true', help='save tracking results (video)')
     opt = parser.parse_args()
-    print(opt, end='\n\n')
+    #print(opt, end='\n\n')
  
     if not opt.test_mot16:
         seqs_str = '''MOT17-02-SDP
@@ -194,16 +194,23 @@ if __name__ == '__main__':
                       MOT17-11-SDP
                       MOT17-13-SDP
                     '''
-        data_root = '/home/wangzd/datasets/MOT/MOT17/images/train'
+        data_root = '/Towards-Realtime-MOT/data/MOT17/images/train'
     else:
         seqs_str = '''MOT16-01
+                     MOT16-02
                      MOT16-03
+                     MOT16-04
+                     MOT16-05
                      MOT16-06
                      MOT16-07
                      MOT16-08
+                     MOT16-09
+                     MOT16-10
+                     MOT16-11
                      MOT16-12
+                     MOT16-13
                      MOT16-14'''
-        data_root = '/home/wangzd/datasets/MOT/MOT16/images/test'
+        data_root = '/home/wangyixin06/workspace/data/MOT16/images/test'
     seqs = [seq.strip() for seq in seqs_str.split()]
 
     main(opt,

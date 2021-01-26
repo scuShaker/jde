@@ -11,8 +11,10 @@ import math
 try:
     from utils.syncbn import SyncBN
     batch_norm=SyncBN #nn.BatchNorm2d
+    print('import SyncBn success')
 except ImportError:
     batch_norm=nn.BatchNorm2d
+    print('import SyncBn fail')
 
 def create_modules(module_defs):
     """
