@@ -185,8 +185,7 @@ def test_emb(
     print('Extracting pedestrain features...')
     for batch_i, (imgs, targets, paths, shapes, targets_len) in enumerate(dataloader):
         t = time.time()
-        output = model(imgs.cuda(), targets.cuda(), targets_len.cuda()).squeeze()
-
+        output = model(imgs.cuda(), targets.cuda(), targets_len.cuda())
         for out in output:
             feat, label = out[:-1], out[-1].long()
             if label != -1:
@@ -230,7 +229,7 @@ if __name__ == '__main__':
     parser.add_argument('--weights', type=str, default='weights/latest.pt', help='path to weights file')
     parser.add_argument('--iou-thres', type=float, default=0.5, help='iou threshold required to qualify as detected')
     parser.add_argument('--conf-thres', type=float, default=0.3, help='object confidence threshold')
-    parser.add_argument('--nms-thres', type=float, default=0.5, help='iou threshold for non-maximum suppression')
+    parser.add_argument('--nms-thres', type=float, default=0.45, help='iou threshold for non-maximum suppression')
     parser.add_argument('--print-interval', type=int, default=10, help='size of each image dimension')
     parser.add_argument('--test-emb', action='store_true', help='test embedding')
     opt = parser.parse_args()
